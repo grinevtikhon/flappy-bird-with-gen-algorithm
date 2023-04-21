@@ -47,7 +47,7 @@ public:
 
 	void reset();
 
-	void next_tick();
+	void next_tick(double);
 
 	void jump();
 

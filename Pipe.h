@@ -31,7 +31,7 @@ public:
 
 	void set_position(double _x1, double _y1, double _y2);
 
-	void next_tick();
+	void next_tick(double);
 
 	void stop();
 

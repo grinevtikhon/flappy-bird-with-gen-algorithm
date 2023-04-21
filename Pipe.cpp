@@ -28,9 +28,9 @@ void Pipe::set_position(double _x1, double _y1, double _y2)
 	return;
 }
 
-void Pipe::next_tick()
+void Pipe::next_tick(double _delta_time)
 {
-	x1 = x1 + v_x * tick;
+	x1 = x1 + v_x * tick * _delta_time;
 	x2 = x1 + width_pipe;
 
 	return;

@@ -19,12 +19,12 @@ void Barriers::generate_pipes()
 	
 }
 
-void Barriers::next_tick()
+void Barriers::next_tick(double _delta_time)
 {
 	for (int i = 0; i < amount; ++i)
 	{
-		pipes[i].first.next_tick();
-		pipes[i].second.next_tick();
+		pipes[i].first.next_tick(_delta_time);
+		pipes[i].second.next_tick(_delta_time);
 	}
 
 	update_pipes();

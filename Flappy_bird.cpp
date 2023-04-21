@@ -40,10 +40,10 @@ void Flappy_bird::reset()
 	return;
 }
 
-void Flappy_bird::next_tick()
+void Flappy_bird::next_tick(double _delta_time)
 {
-	y = y + v_y * tick + ((g * tick * tick) / 2.0f);
-	v_y = v_y + g * tick;
+	y = y + v_y * tick * _delta_time + ((g * tick * _delta_time * tick * _delta_time) / 2.0f);
+	v_y = v_y + g * tick * _delta_time;
 	//x = x + v_x * tick;
 	if (y > Height - high_grass - r) {
 		v_y = -abs(v_y) * 0.4;
@@ -61,7 +61,7 @@ void Flappy_bird::next_tick()
 	//}
 
 	if (alive)
-		score += tick;
+		score += tick * _delta_time;
 
 	return;
 }

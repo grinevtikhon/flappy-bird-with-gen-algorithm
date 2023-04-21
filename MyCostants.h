@@ -2,7 +2,9 @@
 
 const double g = 2400;
 
-const double tick = 0.01f;
+
+const bool VERTICAL_SYNC = true;
+const double tick = 1.5f;
 
 const int Height = 720;
 const int Length = 1080;

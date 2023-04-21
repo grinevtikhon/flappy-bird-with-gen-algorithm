@@ -28,13 +28,13 @@ public:
 
 	int first_element;
 
-	vector<pair<Pipe, Pipe>> pipes; // верхний и нижний
+	vector<pair<Pipe, Pipe>> pipes; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
 	Barriers();
 
 	void generate_pipes();
 
-	void next_tick();
+	void next_tick(double);
 
 	void update_pipes();
 

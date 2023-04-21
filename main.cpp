@@ -44,10 +44,25 @@ vector<Flappy_bird> bird(group_size * nnn);
 Barriers enemy;
 
 
+void next_tick(sf::Clock *clock) {
 
-void next_tick() {
+	// 
+
+	double delta_time = (*clock).getElapsedTime().asSeconds();
+	if(!VERTICAL_SYNC)
+	{
+		delta_time = 0.01f / tick;
+	}
+	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+    // left key is pressed: move our character
+    	delta_time = 0.01f / tick;
+	}
+	clock->restart();
+
+	// cout << delta_time << endl;
 	
-	enemy.next_tick();
+	enemy.next_tick(delta_time);
 
 	//tester.next_tick();
 	//tester.check_bird_with_barriers(enemy);
@@ -57,7 +72,7 @@ void next_tick() {
 	{
 		if (bird[i].alive)
 		{
-			bird[i].next_tick();
+			bird[i].next_tick(delta_time);
 			bird[i].check_bird_with_barriers(enemy);
 			bird[i].update_information(enemy);
 		}
@@ -141,6 +156,8 @@ int main()
 	//return 0;
 	//tick = 0.05;
 
+	sf::Clock clock;
+
 	cout.setf(ios::fixed);
 	cout.precision(2);
 	srand(time(NULL));
@@ -172,7 +189,7 @@ int main()
 		//}
 		//pr_r = now_r;
 
-		next_tick();
+		next_tick(&clock);
 
 
 
@@ -229,7 +246,7 @@ int main()
 		//	tick = 0.005;
 		//}
 
-		if (anyboody_alive == 0 || (anyboody_alive < nnn && number_geration % 20 != 0 && number_geration < 15))
+		if (anyboody_alive == 0 || (anyboody_alive < nnn && number_geration % 20 != 0 && number_geration < 10))
 		{
 			cout << "Generation " << number_geration << " : " << '\t';
 			++number_geration;
